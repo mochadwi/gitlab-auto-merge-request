@@ -21,6 +21,7 @@ BODY="{
     \"target_branch\": \"${TARGET_BRANCH}\",
     \"remove_source_branch\": true,
     \"title\": \"WIP: ${CI_COMMIT_REF_NAME}\",
+    \"message\": \"${CI_COMMIT_MESSAGE}\",
     \"assignee_id\":\"${GITLAB_USER_ID}\"
 }";
 
