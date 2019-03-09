@@ -39,7 +39,7 @@ if [ ${COUNTBRANCHES} -eq "0" ]; then
     curl -v -X POST "${HOST}${CI_PROJECT_ID}/merge_requests" \
         --header "PRIVATE-TOKEN:${GITLAB_PRIVATE_TOKEN}" \
         --header "Content-Type: application/json" \
-        --data "${BODY}";
+        --data '${BODY}';
 
     echo "Opened a new merge request: WIP: ${CI_COMMIT_REF_NAME} and assigned to you";
     exit;
