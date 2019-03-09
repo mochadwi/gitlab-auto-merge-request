@@ -36,7 +36,7 @@ COUNTBRANCHES=`echo ${LISTMR} | grep -o "\"source_branch\":\"${CI_COMMIT_REF_NAM
 if [ ${COUNTBRANCHES} -eq "0" ]; then
     echo "Host: ${HOST}"
     echo "Body: ${BODY}"
-    curl -X POST "${HOST}${CI_PROJECT_ID}/merge_requests" \
+    curl -v -X POST "${HOST}${CI_PROJECT_ID}/merge_requests" \
         --header "PRIVATE-TOKEN:${GITLAB_PRIVATE_TOKEN}" \
         --header "Content-Type: application/json" \
         --data "${BODY}";
