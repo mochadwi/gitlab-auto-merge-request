@@ -15,13 +15,13 @@ TARGET_BRANCH=`curl --silent "${HOST}${CI_PROJECT_ID}" --header "PRIVATE-TOKEN:$
 
 # The description of our new MR, we want to remove the branch after the MR has
 # been closed
+# \"message\": \"${CI_COMMIT_MESSAGE}\",
 BODY="{
     \"id\": ${CI_PROJECT_ID},
     \"source_branch\": \"${CI_COMMIT_REF_NAME}\",
     \"target_branch\": \"${TARGET_BRANCH}\",
     \"remove_source_branch\": true,
     \"title\": \"WIP: ${CI_COMMIT_REF_NAME}\",
-    \"message\": \"${CI_COMMIT_MESSAGE}\",
     \"assignee_id\":\"${GITLAB_USER_ID}\"
 }";
 
