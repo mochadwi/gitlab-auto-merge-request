@@ -12,7 +12,7 @@ fi
 
 if [ -z "$HOST" ]; then
   echo "Cannot connect to empty $HOST"
-  exit 1
+  exit 2
 fi
 
 # Look which is the default branch
