@@ -15,7 +15,7 @@ if [ -z "$HOST" ]; then
 fi
 
 # Look which is the default branch
-TARGET_DEFAULT_BRANCH=`curl --silent "${HOST}${CI_PROJECT_ID}" --header "PRIVATE-TOKEN:${PRIVATE_TOKEN}" | grep -Po '"default_branch":.*?\[^\\]",'`;
+TARGET_DEFAULT_BRANCH=`curl --silent "${HOST}${CI_PROJECT_ID}" --header "PRIVATE-TOKEN:${GITLAB_PRIVATE_TOKEN}" | grep -Po '"default_branch":.*?\[^\\]",'`;
 TARGET_BRANCH="dev"
 
 # The description of our new MR, we want to remove the branch after the MR has
@@ -27,6 +27,7 @@ BODY="{
     \"remove_source_branch\": true,
     \"squash\": true,
     \"title\": \"WIP: ${CI_COMMIT_REF_NAME}\",
+    \"author_id\":\"${GITLAB_USER_ID}\",
     \"assignee_id\":\"${GITLAB_USER_ID}\"
 }";
 
